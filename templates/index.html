@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#0a0d18">
+	<title>AI Code Error Solver</title>
+	<link rel="stylesheet" href="/static/style.css">
+	<script src="/static/script.js" defer></script>
+</head>
+<body>
+	<header class="site-header">
+		<a class="brand" href="/" aria-label="AI Code Error Solver home">
+			<span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+			<span>AI Code Error Solver</span>
+		</a>
+		<div class="system-status" role="status">
+			<span class="status-dot" aria-hidden="true"></span>
+			<span>System Ready</span>
+		</div>
+	</header>
+
+	<main class="page-shell">
+		<section class="hero" aria-labelledby="page-title">
+			<p class="hero-badge"><span aria-hidden="true">&#9889;</span> AI-Powered Debugging</p>
+			<h1 id="page-title">Debug Smarter.<br><span>Code Better.</span></h1>
+			<p class="subtitle">Find, understand, and fix programming errors.</p>
+		</section>
+
+		<form id="analyzer-form" class="analyzer-form">
+			<div class="form-heading">
+				<div>
+					<p class="section-kicker">01 <span>/</span> ANALYSIS INPUT</p>
+					<h2>Start with the details</h2>
+				</div>
+				<span class="form-heading-note">Your code stays yours</span>
+			</div>
+
+			<div class="field language-field">
+				<label for="language">Programming language</label>
+				<select id="language" name="language" required>
+					<option value="Python">Python</option>
+					<option value="Java">Java</option>
+					<option value="C">C</option>
+					<option value="C++">C++</option>
+					<option value="JavaScript">JavaScript</option>
+				</select>
+			</div>
+
+			<div class="editor-grid">
+				<div class="field editor-field">
+					<div class="field-heading">
+						<label for="code">Your code</label>
+						<span class="field-hint">Source</span>
+					</div>
+					<div class="editor-frame">
+						<div class="editor-toolbar"><span class="editor-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="editor-language">PYTHON</span><span>EDIT</span></div>
+						<textarea id="code" name="code" rows="12" required spellcheck="false" aria-label="Your code"
+							placeholder="Paste your code here..."></textarea>
+					</div>
+				</div>
+
+				<div class="field editor-field">
+					<div class="field-heading">
+						<label for="error">Error message</label>
+						<span class="field-hint">Compiler or runtime</span>
+					</div>
+					<div class="editor-frame error-editor">
+						<div class="editor-toolbar"><span class="editor-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>ERROR LOG</span><span>PASTE</span></div>
+						<textarea id="error" name="error" rows="12" required aria-label="Error message"
+							placeholder="Paste the full error message..."></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-footer">
+				<p id="form-message" class="form-message" role="alert" hidden></p>
+				<div class="form-actions">
+					<button class="button button-secondary" id="clear-button" type="button">Clear</button>
+					<button class="button button-primary" id="analyze-button" type="submit">
+						<span class="spinner" aria-hidden="true" hidden></span>
+						<span class="button-label">Analyze Error</span>
+						<span class="button-arrow" aria-hidden="true">&#8594;</span>
+					</button>
+				</div>
+			</div>
+		</form>
+
+		<section id="ready-state" class="ready-state" aria-live="polite">
+			<span class="ready-icon" aria-hidden="true">&gt;_</span>
+			<div>
+				<h2>Ready to debug?</h2>
+				<p>Your analysis will appear here once you submit your code.</p>
+			</div>
+			<span class="ready-state-mark" aria-hidden="true">01</span>
+		</section>
+
+		<section id="results" class="results" aria-labelledby="results-title" aria-live="polite" hidden>
+			<div class="results-heading">
+				<div>
+					<p class="section-kicker">02 <span>/</span> ANALYSIS RESULT</p>
+					<h2 id="results-title">Here’s what we found</h2>
+				</div>
+				<span class="result-indicator"><span aria-hidden="true"></span> Analysis complete</span>
+			</div>
+
+			<div class="result-grid">
+				<article class="result-card error-type-card">
+					<h3>Error Type</h3>
+					<p id="result-error-type" class="error-type-value"></p>
+				</article>
+				<article class="result-card">
+					<h3>Possible Cause</h3>
+					<p id="result-cause"></p>
+				</article>
+				<article class="result-card">
+					<h3>Explanation</h3>
+					<p id="result-explanation"></p>
+				</article>
+				<article class="result-card">
+					<h3>Suggested Solution</h3>
+					<p id="result-solution"></p>
+				</article>
+				<article class="result-card code-result-card">
+					<div class="result-card-heading">
+						<div><h3>Fixed Code</h3><p class="result-card-note">Ready to use</p></div>
+						<button id="copy-button" class="copy-button" type="button"><span aria-hidden="true">&#10697;</span> Copy Code</button>
+					</div>
+					<pre><code id="result-fixed-code"></code></pre>
+					<p id="copy-message" class="copy-message" aria-live="polite"></p>
+				</article>
+				<article class="result-card changes-card">
+					<h3>Changes Made</h3>
+					<p id="result-changes"></p>
+				</article>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<span>AI Code Error Solver</span>
+		<span>Clearer debugging starts here.</span>
+	</footer>
+</body>
+</html>
