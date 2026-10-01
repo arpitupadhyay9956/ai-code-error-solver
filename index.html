@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>AI Code Error Solver</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="AI Code Error Solver home">
+        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+        <span>Code<span class="brand-accent">Clarity</span></span>
+      </a>
+      <span class="version-tag">RULE-BASED · VERSION 1</span>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR FRIENDLY DEBUGGING SIDEKICK</p>
+      <h1 id="page-title">AI Code Error Solver</h1>
+      <p class="hero-subtitle">Find, understand and fix programming errors.</p>
+    </section>
+
+    <section class="workspace-card" aria-labelledby="input-heading">
+      <div class="section-heading">
+        <div>
+          <p class="step-label">STEP 1</p>
+          <h2 id="input-heading">Share the details</h2>
+        </div>
+        <label class="language-field" for="language">
+          <span>Programming language</span>
+          <select id="language" name="language">
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+            <option value="C">C</option>
+            <option value="C++">C++</option>
+            <option value="JavaScript">JavaScript</option>
+          </select>
+        </label>
+      </div>
+
+      <form id="analyzer-form" novalidate>
+        <div class="editor-grid">
+          <div class="field-group">
+            <label for="code-input">Your Code</label>
+            <div class="textarea-wrap code-wrap">
+              <span class="field-glyph" aria-hidden="true">{ }</span>
+              <textarea id="code-input" name="code" placeholder="Paste your code here..." spellcheck="false" autocapitalize="off"></textarea>
+              <span class="editor-language" id="editor-language">PYTHON</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="error-input">Error Message</label>
+            <div class="textarea-wrap error-wrap">
+              <span class="field-glyph error-glyph" aria-hidden="true">!</span>
+              <textarea id="error-input" name="error" placeholder="Paste the error message here..." spellcheck="false"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <p class="form-message" id="form-message" role="alert" hidden></p>
+
+        <div class="form-footer">
+          <p class="privacy-note"><span aria-hidden="true">●</span> Your code stays in this browser.</p>
+          <div class="button-row">
+            <button class="button button-secondary" id="clear-button" type="button">Clear</button>
+            <button class="button button-primary" id="analyze-button" type="submit">
+              <span class="button-label">Analyze Error</span>
+              <span class="button-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="results-section" id="results-section" aria-labelledby="results-heading" aria-live="polite" hidden>
+      <div class="results-title-row">
+        <div>
+          <p class="step-label">STEP 2</p>
+          <h2 id="results-heading">Your debugging guide</h2>
+        </div>
+        <span class="result-status"><span class="result-status-dot"></span> ANALYSIS COMPLETE</span>
+      </div>
+
+      <div class="result-type-card">
+        <span class="result-type-icon" aria-hidden="true">!</span>
+        <div>
+          <p class="result-label">ERROR TYPE</p>
+          <h3 id="result-error-type">Unknown Error</h3>
+        </div>
+      </div>
+
+      <div class="insight-grid">
+        <article class="insight-card">
+          <span class="insight-icon cause-icon" aria-hidden="true">?</span>
+          <div><h3>Possible Cause</h3><p id="result-cause"></p></div>
+        </article>
+        <article class="insight-card">
+          <span class="insight-icon explanation-icon" aria-hidden="true">i</span>
+          <div><h3>Explanation</h3><p id="result-explanation"></p></div>
+        </article>
+        <article class="insight-card solution-card">
+          <span class="insight-icon solution-icon" aria-hidden="true">✓</span>
+          <div><h3>Suggested Solution</h3><p id="result-solution"></p></div>
+        </article>
+      </div>
+
+      <article class="code-result-card">
+        <div class="code-result-header">
+          <div>
+            <p class="result-label">THE NEXT STEP</p>
+            <h3>Fixed Code</h3>
+          </div>
+          <button class="button button-copy" id="copy-button" type="button">
+            <span aria-hidden="true">▣</span> Copy Code
+          </button>
+        </div>
+        <pre class="fixed-code"><code id="fixed-code"></code></pre>
+        <div class="changes-row">
+          <span class="changes-check" aria-hidden="true">✓</span>
+          <div><h4>Changes Made</h4><p id="result-changes"></p></div>
+        </div>
+        <p class="copy-message" id="copy-message" role="status" hidden></p>
+      </article>
+      <p class="disclaimer">This beginner-friendly tool uses simple rules, not an AI model. Always review suggested changes before using them.</p>
+    </section>
+
+    <footer class="site-footer">
+      <span>Made for curious minds and cleaner code.</span>
+      <span class="footer-sparkle" aria-hidden="true">✳</span>
+    </footer>
+  </main>
+</body>
+</html>
