@@ -1,1 +1,1 @@
-# ai-code-error-solver
+# ai-code-error-solver 1st project 
